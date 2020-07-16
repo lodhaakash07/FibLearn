@@ -28,7 +28,7 @@ function generateDates(event) {
     
     var startDate = moment(event.value);
     if (typeof(Storage) !== "undefined") {
-        localStorage.setItem('date');
+        localStorage.setItem('date', startDate);
     }
     var resultEl = document.getElementById("result");
     while(moment(date).isAfter(startDate,'day')) {
