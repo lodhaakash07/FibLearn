@@ -1,3 +1,11 @@
+if (typeof(Storage) !== "undefined") {
+    var _1 = localStorage.getItem("date");
+    if(_1) {
+        generateDates({value: _1});
+    }
+  } else {
+   
+}
 function generateDates(event) {
     var i;
     var fib = []; // Initialize array!
@@ -19,6 +27,9 @@ function generateDates(event) {
     var date = new Date();
     
     var startDate = moment(event.value);
+    if (typeof(Storage) !== "undefined") {
+        localStorage.setItem('date');
+    }
     var resultEl = document.getElementById("result");
     while(moment(date).isAfter(startDate,'day')) {
       for(var nn=0; nn<50;nn++) {
